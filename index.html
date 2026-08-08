@@ -1459,7 +1459,7 @@
     const data = Object.fromEntries(new FormData(form));
     data._subject = subject || 'New submission — Paps Texas Logistics';
 
-    fetch('https://formsubmit.co/ajax/admin@papstexaslogistics.com', {
+    fetch('https://formsubmit.co/ajax/carloportillo112233@gmail.com', {
       method: 'POST',
       headers: {'Content-Type':'application/json', 'Accept':'application/json'},
       body: JSON.stringify(data)
@@ -1469,9 +1469,10 @@
       if(r.success === 'true' || r.success === true){
         btn.innerHTML = '✅ Sent!';
         setTimeout(()=>{ btn.innerHTML=orig; btn.style.opacity=''; btn.disabled=false; form.reset(); }, 4000);
-      } else { throw new Error(); }
+      } else { throw new Error('not ok'); }
     })
-    .catch(()=>{
+    .catch(err=>{
+      console.error('Form error:', err);
       btn.innerHTML = '❌ Error — try again';
       btn.style.opacity = '1';
       btn.disabled = false;
