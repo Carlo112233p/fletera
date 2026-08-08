@@ -135,6 +135,8 @@
       box-shadow:0 2px 8px rgba(255,214,10,.35);
     }
     .brand-name{font-size:1.1rem;font-weight:800;letter-spacing:-.3px}
+    .brand-numbers{display:flex;flex-direction:column;gap:1px;padding-left:11px;border-left:1px solid var(--border)}
+    .brand-numbers span{font-size:.62rem;font-weight:600;color:var(--text3);letter-spacing:.4px;line-height:1.3;white-space:nowrap}
     .nav-links{display:flex;gap:.25rem;position:relative;align-items:center}
     .nav-links a{font-size:.85rem;color:var(--text3);font-weight:500;transition:color .15s;padding:.55rem 1.25rem;border-radius:100px;position:relative;z-index:1;white-space:nowrap}
     .nav-links a:hover{color:var(--text)}
@@ -272,8 +274,8 @@
       backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);
       border:1px solid rgba(255,255,255,.7);
       border-radius:100px;
-      padding:.45rem 1rem;
-      font-size:.7rem;font-weight:700;color:var(--text);
+      padding:.6rem 1.3rem;
+      font-size:.85rem;font-weight:700;color:var(--text);
       box-shadow:0 6px 20px rgba(0,0,0,.14),0 1px 0 rgba(255,255,255,.9) inset;
       white-space:nowrap;
       animation:floatChip 6s ease-in-out infinite;
@@ -732,7 +734,7 @@
       .hero-card-wrap{display:block}
       .truck-scene{padding:1rem .5rem}
       .truck-svg{max-width:100%;margin:0 auto;display:block}
-      .fchip{font-size:.58rem;padding:.28rem .6rem}
+      .fchip{font-size:.7rem;padding:.35rem .75rem}
 
       /* Container */
       .container{padding:0 1rem}
@@ -802,7 +804,7 @@
         transform:translate(-50%,-50%);
         width:55%;height:100%;
       }
-      .fchip{font-size:.58rem;padding:.28rem .6rem}
+      .fchip{font-size:.7rem;padding:.35rem .75rem}
       .fchip:nth-child(1){top:-1rem;left:50%;transform:translateX(-50%)}
       .fchip:nth-child(2){top:15%;right:-3.5rem}
       .fchip:nth-child(3){bottom:18%;right:-3.5rem}
@@ -861,7 +863,11 @@
 <nav>
   <div class="nav-inner">
     <div class="brand">
-      <div class="brand-name">PAPS</div>
+      <div class="brand-name">Paps Texas Logistics LLC</div>
+      <div class="brand-numbers">
+        <span>MC 000000</span>
+        <span>DOT 0000000</span>
+      </div>
     </div>
     <div class="nav-links" id="navLinks">
       <div class="nav-pill" id="navPill"></div>
@@ -907,8 +913,8 @@
           <div class="float-chips">
             <div class="fchip" style="top:-1rem;left:50%;transform:translateX(-50%);animation-delay:0s"><span class="cdot"></span>GPS Active</div>
             <div class="fchip" style="top:18%;right:-1rem;animation-delay:-1.5s">$1M Insured</div>
-            <div class="fchip" style="bottom:20%;right:-1.5rem;animation-delay:-3s">Lift Gate ✓</div>
-            <div class="fchip" style="bottom:-1rem;left:50%;transform:translateX(-50%);animation-delay:-2s">DOT Certified</div>
+            <div class="fchip" style="bottom:20%;right:-1.5rem;animation-delay:-3s">DOT Certified</div>
+            <div class="fchip" style="bottom:20%;left:-1.5rem;animation-delay:-2s">Lift Gate ✓</div>
             <div class="fchip" style="top:18%;left:-1rem;animation-delay:-4s">24/7 Available</div>
           </div>
 
@@ -1089,7 +1095,7 @@
       <div class="fade" style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem">
         <div>
           <div class="sec-label">Services</div>
-          <div class="sec-title">What we haul</div>
+          <div class="sec-title">Hauling services</div>
         </div>
         <p style="font-size:.85rem;color:var(--text3);max-width:280px;line-height:1.65">Flexible on-demand box truck capacity for shippers and brokers across Texas.</p>
       </div>
@@ -1108,15 +1114,15 @@
         </div>
         <div class="svc-card">
           <div class="svc-num">03</div>
-          <div class="svc-title">White-Glove Freight</div>
-          <div class="svc-desc">Blanket-wrapped and E-track strapped for furniture, high-value equipment, and fragile cargo that demands care.</div>
-          <span class="svc-tag">Furniture · Equipment</span>
-        </div>
-        <div class="svc-card">
-          <div class="svc-num">04</div>
           <div class="svc-title">Expedited Loads</div>
           <div class="svc-desc">Time-sensitive freight that can't wait. Same-day and next-day pickup available on request — we move fast.</div>
           <span class="svc-tag">Same-Day · Next-Day</span>
+        </div>
+        <div class="svc-card">
+          <div class="svc-num">04</div>
+          <div class="svc-title">White-Glove Freight</div>
+          <div class="svc-desc">Blanket-wrapped and E-track strapped for furniture, high-value equipment, and fragile cargo that demands care.</div>
+          <span class="svc-tag">Furniture · Equipment</span>
         </div>
       </div>
     </div>
@@ -1232,7 +1238,7 @@
             <li class="spec-li"><span class="spec-check">✓</span>Moving Blankets — furniture-grade</li>
             <li class="spec-li"><span class="spec-check">✓</span>Pallet Jack onboard</li>
             <li class="spec-li"><span class="spec-check">✓</span>Real-Time ELD & GPS Tracking</li>
-            <li class="spec-li"><span class="spec-check">✓</span>DOT Certified Driver</li>
+            <li class="spec-li"><span class="spec-check">✓</span>DOT Medical Certification</li>
           </ul>
         </div>
       </div>
@@ -1302,7 +1308,7 @@
           <div class="c-title">Drive with PAPS</div>
           <div class="c-desc">We hire safe, dependable professionals. Competitive pay, consistent loads.</div>
           <div class="req-list">
-            <div class="req">🪪&ensp;Clean MVR — no accidents in 3 years</div>
+            <div class="req">🪪&ensp;No accidents in 3 years</div>
             <div class="req">🔍&ensp;Background check required</div>
             <div class="req">🩺&ensp;DOT Medical Card — paid by us</div>
             <div class="req">🚫&ensp;Drug-free — zero tolerance</div>
@@ -1434,15 +1440,20 @@
   const cities = {
     dallas:[32.78,-96.80], houston:[29.76,-95.36], austin:[30.27,-97.74],
     sanantonio:[29.42,-98.49], elpaso:[31.76,-106.49],
-    lubbock:[33.58,-101.85], corpus:[27.80,-97.40], laredo:[27.51,-99.51]
+    lubbock:[33.58,-101.85], corpus:[27.80,-97.40], laredo:[27.51,-99.51],
+    amarillo:[35.19,-101.83], brownsville:[25.90,-97.50]
   };
   const routes = [
-    [cities.dallas, cities.houston],
-    [cities.dallas, cities.austin],
-    [cities.austin, cities.sanantonio],
     [cities.sanantonio, cities.houston],
-    [cities.dallas, cities.elpaso],
+    [cities.sanantonio, cities.austin],
+    [cities.austin, cities.dallas],
+    [cities.sanantonio, cities.dallas],
+    [cities.sanantonio, cities.elpaso],
     [cities.sanantonio, cities.laredo],
+    [cities.sanantonio, cities.corpus],
+    [cities.sanantonio, cities.lubbock],
+    [cities.lubbock, cities.amarillo],
+    [cities.corpus, cities.brownsville],
     [cities.houston, cities.corpus]
   ];
   routes.forEach(r=>{
@@ -1455,8 +1466,9 @@
     iconSize:[gold?18:13,gold?18:13],iconAnchor:[gold?9:6.5,gold?9:6.5]
   });
   Object.entries({
-    'Dallas — Home Base':['dallas',true],'Houston':['houston'],'Austin':['austin'],
-    'San Antonio':['sanantonio'],'El Paso':['elpaso'],'Lubbock':['lubbock'],
+    'San Antonio — Home Base':['sanantonio',true],'Houston':['houston'],'Austin':['austin'],
+    'Dallas':['dallas'],'El Paso':['elpaso'],'Lubbock':['lubbock'],
+    'Amarillo':['amarillo'],'Brownsville':['brownsville'],
     'Corpus Christi':['corpus'],'Laredo':['laredo']
   }).forEach(([name,[key,gold]])=>{
     L.marker(cities[key],{icon:dot(gold)}).addTo(map).bindTooltip(name,{direction:'top',offset:[0,-8]});
