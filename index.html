@@ -1487,37 +1487,47 @@
     if(!heroTruck) return;
 
     const ft = heroTruck.cloneNode(true);
-    // z-index:0 → behind .page (z-index:1) so it passes behind content
-    ft.style.cssText = 'position:fixed;width:200px;z-index:0;opacity:0;pointer-events:none;animation:none;transform:translate(-50%,-50%);will-change:left,top,opacity;';
+    ft.style.cssText = 'position:fixed;width:200px;z-index:0;opacity:0;pointer-events:none;animation:none;transform:translate(-50%,-50%);will-change:left,top,opacity;transition:opacity 0.25s ease;';
     document.body.appendChild(ft);
 
     const hero = document.getElementById('home');
-    let startX = null, startY = null;
+
+    // Capture hero truck center position after layout settles
+    let startX, startY;
+    requestAnimationFrame(()=>{
+      const r = heroTruck.getBoundingClientRect();
+      startX = (r.left + r.width  / 2) / window.innerWidth  * 100;
+      startY = (r.top  + r.height / 2) / window.innerHeight * 100;
+      // Pre-position so there's no jump on first appearance
+      ft.style.left = startX + 'vw';
+      ft.style.top  = startY + 'vh';
+    });
 
     function tick(){
-      const hb = hero.getBoundingClientRect().bottom;
+      if(!startX) return;
+      const heroTop   = hero.getBoundingClientRect().top;
       const maxScroll = document.body.scrollHeight - window.innerHeight;
       if(maxScroll <= 0) return;
 
       const t = Math.min(window.scrollY / maxScroll, 1);
 
-      // fade in as hero bottom exits viewport
-      const fadeIn  = Math.min(Math.max((window.innerHeight - hb) / window.innerHeight, 0) * 3, 1);
+      // Follow the real hero truck position while it's on screen
+      const r  = heroTruck.getBoundingClientRect();
+      const cx = (r.left + r.width  / 2) / window.innerWidth  * 100;
+      const cy = (r.top  + r.height / 2) / window.innerHeight * 100;
+
+      // heroTop < 0 means hero has scrolled above viewport
+      // exited: 0→1 over the first 20vh of scroll after hero leaves
+      const exited  = Math.min(Math.max(-heroTop / (window.innerHeight * 0.2), 0), 1);
       const fadeOut = t > 0.88 ? 1 - (t - 0.88) / 0.12 : 1;
-      const opacity = fadeIn * 0.85 * fadeOut;
+      const opacity = exited * 0.85 * fadeOut;
 
-      // Capture hero truck's screen position the first time it becomes visible
-      if(!startX && fadeIn > 0) {
-        const r = heroTruck.getBoundingClientRect();
-        startX = (r.left + r.width  / 2) / window.innerWidth  * 100;
-        startY = (r.top  + r.height / 2) / window.innerHeight * 100;
-      }
+      // While hero is still on screen → track it exactly; once gone → S-curve
+      const sCurveX = startX + 28 * Math.sin(t * Math.PI * 2);
+      const sCurveY = startY + t * (85 - startY);
 
-      if(!startX) { ft.style.opacity = 0; return; }
-
-      // S-curve: oscillate ±30vw around startX, slide down to 85vh
-      const x = startX + 30 * Math.sin(t * Math.PI * 2);
-      const y = startY + t * (85 - startY);
+      const x = cx * (1 - exited) + sCurveX * exited;
+      const y = cy * (1 - exited) + sCurveY * exited;
 
       ft.style.left    = x + 'vw';
       ft.style.top     = y + 'vh';
@@ -1526,7 +1536,6 @@
 
     window.addEventListener('scroll', tick, {passive:true});
     window.addEventListener('resize', ()=>{ if(window.innerWidth<768) ft.style.opacity='0'; });
-    tick();
   })();
 </script>
 </body>
