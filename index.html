@@ -1296,13 +1296,14 @@
           </div>
           <div class="form-glass">
             <div class="form-h">Freight Details</div>
-            <form onsubmit="go(event,'qb')">
+            <form onsubmit="go(event,'qb','Quote Request — Paps Texas Logistics')">
+              <input type="hidden" name="_captcha" value="false"/>
               <div class="fgrid">
-                <div class="fg"><label>Pickup ZIP</label><input type="text" placeholder="77001" maxlength="5" required/></div>
-                <div class="fg"><label>Drop-off ZIP</label><input type="text" placeholder="75201" maxlength="5" required/></div>
+                <div class="fg"><label>Pickup ZIP</label><input name="pickup_zip" type="text" placeholder="77001" maxlength="5" required/></div>
+                <div class="fg"><label>Drop-off ZIP</label><input name="dropoff_zip" type="text" placeholder="75201" maxlength="5" required/></div>
                 <div class="fg">
                   <label>Commodity</label>
-                  <select required>
+                  <select name="commodity" required>
                     <option value="">Select…</option>
                     <option>General Freight</option>
                     <option>Furniture / Appliances</option>
@@ -1312,10 +1313,10 @@
                     <option>Other</option>
                   </select>
                 </div>
-                <div class="fg"><label>Weight (lbs)</label><input type="number" placeholder="2,000" required/></div>
-                <div class="fg"><label>Pickup Date</label><input type="date" required/></div>
-                <div class="fg"><label>Phone or Email</label><input type="text" placeholder="(555) 000-0000" required/></div>
-                <div class="fg span2"><label>Notes</label><textarea placeholder="Liftgate needed? Appointment? Special handling…"></textarea></div>
+                <div class="fg"><label>Weight (lbs)</label><input name="weight_lbs" type="number" placeholder="2,000" required/></div>
+                <div class="fg"><label>Pickup Date</label><input name="pickup_date" type="date" required/></div>
+                <div class="fg"><label>Phone or Email</label><input name="contact" type="text" placeholder="(555) 000-0000" required/></div>
+                <div class="fg span2"><label>Notes</label><textarea name="notes" placeholder="Liftgate needed? Appointment? Special handling…"></textarea></div>
               </div>
               <button type="submit" id="qb" class="submit-btn">Send Request →</button>
               <p class="form-note" style="color:rgba(255,255,255,.25)">We respond within 30 minutes during business hours.</p>
@@ -1346,14 +1347,15 @@
         <div class="driver-form">
           <div class="df-title">Express Interest</div>
           <div class="df-sub">Quick form — we'll walk you through the DOT application.</div>
-          <form onsubmit="go(event,'db')">
+          <form onsubmit="go(event,'db','Driver Application — Paps Texas Logistics')">
+            <input type="hidden" name="_captcha" value="false"/>
             <div class="fgrid" style="gap:.65rem">
-              <div class="fg"><label>Name</label><input type="text" placeholder="Full name" required/></div>
-              <div class="fg"><label>Phone</label><input type="tel" placeholder="(555) 000-0000" required/></div>
-              <div class="fg span2"><label>Email</label><input type="email" placeholder="you@email.com" required/></div>
+              <div class="fg"><label>Name</label><input name="name" type="text" placeholder="Full name" required/></div>
+              <div class="fg"><label>Phone</label><input name="phone" type="tel" placeholder="(555) 000-0000" required/></div>
+              <div class="fg span2"><label>Email</label><input name="email" type="email" placeholder="you@email.com" required/></div>
               <div class="fg span2">
                 <label>Experience</label>
-                <select required>
+                <select name="experience" required>
                   <option value="">Select…</option>
                   <option>Less than 1 year</option>
                   <option>1 – 3 years</option>
@@ -1444,11 +1446,37 @@
   requestAnimationFrame(()=>{ updateActive(); });
   window.addEventListener('scroll', updateActive, {passive:true});
 
-  function go(e,id){
+  function go(e, id, subject){
     e.preventDefault();
-    const b=document.getElementById(id),t=b.innerHTML;
-    b.innerHTML='✅ Sent!';b.style.opacity='.6';b.disabled=true;
-    setTimeout(()=>{b.innerHTML=t;b.style.opacity='';b.disabled=false;e.target.reset();},4000);
+    const form = e.target;
+    const btn  = document.getElementById(id);
+    const orig = btn.innerHTML;
+
+    btn.innerHTML = '⏳ Sending…';
+    btn.style.opacity = '.6';
+    btn.disabled = true;
+
+    const data = Object.fromEntries(new FormData(form));
+    data._subject = subject || 'New submission — Paps Texas Logistics';
+
+    fetch('https://formsubmit.co/ajax/admin@papstexaslogistics.com', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json', 'Accept':'application/json'},
+      body: JSON.stringify(data)
+    })
+    .then(r => r.json())
+    .then(r => {
+      if(r.success === 'true' || r.success === true){
+        btn.innerHTML = '✅ Sent!';
+        setTimeout(()=>{ btn.innerHTML=orig; btn.style.opacity=''; btn.disabled=false; form.reset(); }, 4000);
+      } else { throw new Error(); }
+    })
+    .catch(()=>{
+      btn.innerHTML = '❌ Error — try again';
+      btn.style.opacity = '1';
+      btn.disabled = false;
+      setTimeout(()=>{ btn.innerHTML=orig; }, 3000);
+    });
   }
   const obs=new IntersectionObserver(entries=>{
     entries.forEach(el=>{if(el.isIntersecting){el.target.classList.add('in');obs.unobserve(el.target);}});
