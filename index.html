@@ -741,9 +741,15 @@
       .hero-h{font-size:clamp(2.8rem,11vw,4rem);letter-spacing:-2px;margin-bottom:1rem}
       .hero-p{font-size:.92rem;margin-bottom:1.75rem;max-width:100%}
       .hero-btns{flex-direction:column;align-items:stretch;gap:.7rem}
-      .btn-hero,.btn-hero-ghost{
-        width:100%;text-align:center;justify-content:center;
-        font-size:.9rem;padding:1rem 1.5rem;
+      .hero-btns{flex-direction:row;gap:1rem;justify-content:center}
+      .btn-hero{
+        font-size:.82rem;padding:.65rem 1.3rem;
+        box-shadow:0 4px 14px rgba(0,0,0,.18);
+      }
+      .btn-hero-ghost{
+        background:none;border:none;box-shadow:none;
+        font-size:.82rem;font-weight:600;padding:.65rem .25rem;
+        color:var(--text3);text-decoration:underline;text-underline-offset:3px;
       }
       .hero-stats{
         gap:1.5rem;margin-top:2rem;padding-top:1.5rem;
@@ -1505,13 +1511,16 @@
 
   // ─── Scroll truck: starts from hero position, follows S-curve ───
   (function(){
-    if(window.innerWidth < 768) return;
     const heroTruck = document.querySelector('.hero .truck-svg');
     if(!heroTruck) return;
 
+    const isMobile = ()=> window.innerWidth < 768;
+    const truckW   = ()=> isMobile() ? 110 : 200;
+    const amplitude= ()=> isMobile() ?  18 :  30;
+
     const ft = heroTruck.cloneNode(true);
-    // z-index:0 → behind .page (z-index:1) so it passes behind content
-    ft.style.cssText = 'position:fixed;width:200px;z-index:0;opacity:0;pointer-events:none;animation:none;transform:translate(-50%,-50%);will-change:left,top,opacity;';
+    ft.style.cssText = 'position:fixed;z-index:0;opacity:0;pointer-events:none;animation:none;transform:translate(-50%,-50%);will-change:left,top,opacity;';
+    ft.style.width = truckW() + 'px';
     document.body.appendChild(ft);
 
     const hero = document.getElementById('home');
@@ -1524,12 +1533,10 @@
 
       const t = Math.min(window.scrollY / maxScroll, 1);
 
-      // fade in as hero bottom exits viewport
       const fadeIn  = Math.min(Math.max((window.innerHeight - hb) / window.innerHeight, 0) * 3, 1);
       const fadeOut = t > 0.88 ? 1 - (t - 0.88) / 0.12 : 1;
-      const opacity = fadeIn * 0.85 * fadeOut;
+      const opacity = fadeIn * 0.75 * fadeOut;
 
-      // Capture hero truck's screen position the first time it becomes visible
       if(!startX && fadeIn > 0) {
         const r = heroTruck.getBoundingClientRect();
         startX = (r.left + r.width  / 2) / window.innerWidth  * 100;
@@ -1538,17 +1545,17 @@
 
       if(!startX) { ft.style.opacity = 0; return; }
 
-      // S-curve: oscillate ±30vw around startX, slide down to 85vh
-      const x = startX + 30 * Math.sin(t * Math.PI * 2);
+      const x = startX + amplitude() * Math.sin(t * Math.PI * 2);
       const y = startY + t * (85 - startY);
 
+      ft.style.width   = truckW() + 'px';
       ft.style.left    = x + 'vw';
       ft.style.top     = y + 'vh';
       ft.style.opacity = opacity;
     }
 
     window.addEventListener('scroll', tick, {passive:true});
-    window.addEventListener('resize', ()=>{ if(window.innerWidth<768) ft.style.opacity='0'; });
+    window.addEventListener('resize', tick);
     tick();
   })();
 </script>
