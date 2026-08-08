@@ -1479,6 +1479,44 @@
     dashOff-=1;
     document.querySelectorAll('#txmap .route-anim').forEach(p=>p.style.strokeDashoffset=dashOff);
   },60);
+
+  // ─── Scroll truck: follows S-curve down the page ───
+  (function(){
+    if(window.innerWidth < 768) return;
+    const heroTruck = document.querySelector('.hero .truck-svg');
+    if(!heroTruck) return;
+
+    const ft = heroTruck.cloneNode(true);
+    ft.style.cssText = 'position:fixed;width:200px;z-index:50;opacity:0;pointer-events:none;animation:none;transform:translateX(-50%);will-change:left,top,opacity;';
+    document.body.appendChild(ft);
+
+    const hero = document.getElementById('home');
+
+    function tick(){
+      const hb = hero.getBoundingClientRect().bottom;
+      const maxScroll = document.body.scrollHeight - window.innerHeight;
+      if(maxScroll <= 0) return;
+
+      const t = Math.min(window.scrollY / maxScroll, 1);
+
+      // fade in as hero leaves viewport, fade out near end
+      const fadeIn  = 1 - Math.max(hb, 0) / window.innerHeight;
+      const fadeOut = t > 0.88 ? 1 - (t - 0.88) / 0.12 : 1;
+      const opacity = Math.min(Math.max(fadeIn * 2.5, 0), 0.88) * fadeOut;
+
+      // S-curve: right → left → right
+      const x = 55 + 30 * Math.sin(t * Math.PI * 2);
+      const y = 12 + t * 68;
+
+      ft.style.left    = x + 'vw';
+      ft.style.top     = y + 'vh';
+      ft.style.opacity = opacity;
+    }
+
+    window.addEventListener('scroll', tick, {passive:true});
+    window.addEventListener('resize', ()=>{ if(window.innerWidth<768) ft.style.opacity='0'; });
+    tick();
+  })();
 </script>
 </body>
 </html>
