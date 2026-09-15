@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>PAPS Logistics · 26 ft Box Truck Freight · Texas</title>
-  <meta name="description" content="On-demand 26 ft box truck capacity for shippers and brokers throughout Texas. Lift gate, $1M insured, real-time GPS tracking, 24/7 dispatch. Request a quote — 30-min response."/>
+  <title>PAPS Logistics · 20 ft Box Truck Freight · Texas</title>
+  <meta name="description" content="On-demand 20 ft box truck capacity for shippers and brokers throughout Texas. Lift gate, $1M insured, real-time GPS tracking, 24/7 dispatch. Request a quote — 30-min response."/>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23FFD60A'/><text x='50' y='68' font-size='52' text-anchor='middle' font-family='Arial' font-weight='900' fill='%231c1c1e'>P</text></svg>"/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
   <style>
@@ -78,11 +78,11 @@
 
     /* texas silhouette with traveling route */
     .bg-texas{
-      position:fixed;top:50%;right:12%;transform:translateY(-50%);
-      width:min(58vw,760px);pointer-events:none;z-index:0;
-      opacity:.55;
+      position:fixed;top:50%;right:0;transform:translateY(-50%);
+      width:min(72vw,960px);pointer-events:none;z-index:0;
+      opacity:.55;overflow:visible;
     }
-    .bg-texas .tx-outline{fill:none;stroke:rgba(28,28,30,.09);stroke-width:2.5;stroke-linejoin:round}
+    .bg-texas .tx-outline{fill:none;stroke:rgba(28,28,30,.09);stroke-width:5;stroke-linejoin:round}
     .bg-texas .tx-fill{fill:rgba(28,28,30,.018)}
     .bg-texas .tx-trip{
       fill:none;stroke:rgba(255,159,10,.35);stroke-width:2.5;stroke-linecap:round;
@@ -156,15 +156,14 @@
       backdrop-filter:blur(8px);
     }
     .nav-cta{
-      background:rgba(28,28,30,.82);color:#fff;
+      background:linear-gradient(135deg,var(--accent),var(--accent2));color:#1a1a1a;
       font-size:.83rem;font-weight:800;
       padding:.6rem 1.4rem;border-radius:100px;
-      border:1px solid rgba(255,255,255,.14);
-      backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);
+      border:none;
       transition:all .15s;
-      box-shadow:0 4px 16px rgba(0,0,0,.25),0 1px 0 rgba(255,255,255,.12) inset;
+      box-shadow:0 4px 16px rgba(255,214,10,.35);
     }
-    .nav-cta:hover{background:rgba(28,28,30,.95);transform:translateY(-1px);box-shadow:0 6px 22px rgba(0,0,0,.3)}
+    .nav-cta:hover{opacity:.9;transform:translateY(-1px);box-shadow:0 6px 22px rgba(255,214,10,.45)}
     @media(max-width:620px){.nav-links{display:none}}
 
     /* ─── LAYOUT ─── */
@@ -218,14 +217,13 @@
     }
     .hero-btns{display:flex;align-items:center;gap:.85rem;flex-wrap:wrap}
     .btn-hero{
-      background:rgba(28,28,30,.82);color:#fff;
+      background:linear-gradient(135deg,var(--accent),var(--accent2));color:#1a1a1a;
       font-family:inherit;font-size:.88rem;font-weight:800;
-      padding:.85rem 1.85rem;border-radius:100px;border:1px solid rgba(255,255,255,.14);cursor:pointer;
-      backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);
+      padding:.85rem 1.85rem;border-radius:100px;border:none;cursor:pointer;
       transition:all .2s;
-      box-shadow:0 6px 24px rgba(0,0,0,.25),0 1px 0 rgba(255,255,255,.12) inset;
+      box-shadow:0 6px 24px rgba(255,214,10,.35);
     }
-    .btn-hero:hover{background:rgba(28,28,30,.95);transform:translateY(-2px);box-shadow:0 10px 32px rgba(0,0,0,.3)}
+    .btn-hero:hover{opacity:.9;transform:translateY(-2px);box-shadow:0 10px 32px rgba(255,214,10,.45)}
     .btn-hero-ghost{
       font-size:.85rem;color:var(--text2);font-weight:500;
       padding:.85rem 1.5rem;border-radius:100px;
@@ -267,8 +265,8 @@
       animation:floatY 5s ease-in-out infinite;
     }
     @keyframes floatY{
-      0%,100%{transform:translateY(0)}
-      50%{transform:translateY(-10px)}
+      0%,100%{transform:scaleX(-1) translateY(0)}
+      50%{transform:scaleX(-1) translateY(-10px)}
     }
     /* floating glass chips around truck */
     .float-chips{position:absolute;inset:0;pointer-events:none;z-index:2}
@@ -877,17 +875,24 @@
 <div class="bg-grid"></div>
 
 <svg class="bg-texas" viewBox="-40 -20 880 720" xmlns="http://www.w3.org/2000/svg">
-  <path class="tx-fill tx-outline" d="M222,6 L402,6 L402,122 C470,110 540,150 612,168 C660,178 712,180 759,183 L760,276 C768,315 774,352 780,390 L774,414 C740,436 712,448 684,462 C660,474 640,482 618,492 C600,506 584,522 570,540 C572,572 573,604 573,636 L558,642 C544,638 530,636 516,633 C496,626 476,619 456,612 C448,600 441,588 435,576 C434,566 433,556 432,546 C416,530 400,514 384,498 C377,482 370,466 363,450 L348,435 C332,427 316,418 300,410 L264,402 C248,420 232,438 216,456 L177,441 C162,434 147,427 132,420 C124,406 116,392 108,378 C82,356 56,334 30,312 L12,289 L8,283 L218,276 L222,6 Z"/>
-  <path class="tx-trip" d="M24,292 C210,272 400,250 580,230 C620,290 655,350 680,410 C620,420 555,428 492,431 C507,414 522,397 538,380"/>
-  <circle class="tx-stopdot" cx="24" cy="292" r="4"/>
-  <circle class="tx-stopdot" cx="580" cy="230" r="4"/>
-  <circle class="tx-stopdot" cx="680" cy="410" r="4"/>
-  <circle class="tx-stopdot" cx="492" cy="431" r="4"/>
-  <circle class="tx-stopdot" cx="538" cy="380" r="4"/>
-  <circle class="tx-truckdot" r="5">
-    <animateMotion dur="26s" repeatCount="indefinite" keyPoints="0;1;1" keyTimes="0;0.55;1" calcMode="linear"
-      path="M24,292 C210,272 400,250 580,230 C620,290 655,350 680,410 C620,420 555,428 492,431 C507,414 522,397 538,380"/>
-  </circle>
+  <defs>
+    <clipPath id="txClip">
+      <path d="M222,6 L402,6 L402,122 C470,110 540,150 612,168 C660,178 712,180 759,183 L760,276 C768,315 774,352 780,390 L774,414 C740,436 712,448 684,462 C660,474 640,482 618,492 C600,506 584,522 570,540 C572,572 573,604 573,636 L558,642 C544,638 530,636 516,633 C496,626 476,619 456,612 C448,600 441,588 435,576 C434,566 433,556 432,546 C416,530 400,514 384,498 C377,482 370,466 363,450 L348,435 C332,427 316,418 300,410 L264,402 C248,420 232,438 216,456 L177,441 C162,434 147,427 132,420 C124,406 116,392 108,378 C82,356 56,334 30,312 L12,289 L8,283 L218,276 L222,6 Z"/>
+    </clipPath>
+  </defs>
+  <path class="tx-fill" d="M222,6 L402,6 L402,122 C470,110 540,150 612,168 C660,178 712,180 759,183 L760,276 C768,315 774,352 780,390 L774,414 C740,436 712,448 684,462 C660,474 640,482 618,492 C600,506 584,522 570,540 C572,572 573,604 573,636 L558,642 C544,638 530,636 516,633 C496,626 476,619 456,612 C448,600 441,588 435,576 C434,566 433,556 432,546 C416,530 400,514 384,498 C377,482 370,466 363,450 L348,435 C332,427 316,418 300,410 L264,402 C248,420 232,438 216,456 L177,441 C162,434 147,427 132,420 C124,406 116,392 108,378 C82,356 56,334 30,312 L12,289 L8,283 L218,276 L222,6 Z"/>
+  <path class="tx-outline" clip-path="url(#txClip)" d="M222,6 L402,6 L402,122 C470,110 540,150 612,168 C660,178 712,180 759,183 L760,276 C768,315 774,352 780,390 L774,414 C740,436 712,448 684,462 C660,474 640,482 618,492 C600,506 584,522 570,540 C572,572 573,604 573,636 L558,642 C544,638 530,636 516,633 C496,626 476,619 456,612 C448,600 441,588 435,576 C434,566 433,556 432,546 C416,530 400,514 384,498 C377,482 370,466 363,450 L348,435 C332,427 316,418 300,410 L264,402 C248,420 232,438 216,456 L177,441 C162,434 147,427 132,420 C124,406 116,392 108,378 C82,356 56,334 30,312 L12,289 L8,283 L218,276 L222,6 Z"/>
+  <g clip-path="url(#txClip)">
+    <path class="tx-trip" d="M55,340 C130,325 195,318 210,322 C310,308 440,258 555,225 C610,298 648,388 648,432 C638,468 558,502 445,502"/>
+    <circle class="tx-stopdot" cx="55"  cy="340" r="4"/>
+    <circle class="tx-stopdot" cx="555" cy="225" r="4"/>
+    <circle class="tx-stopdot" cx="648" cy="432" r="4"/>
+    <circle class="tx-stopdot" cx="445" cy="502" r="4"/>
+    <circle class="tx-truckdot" r="5">
+      <animateMotion dur="26s" repeatCount="indefinite" keyPoints="0;1;1" keyTimes="0;0.55;1" calcMode="linear"
+        path="M55,340 C130,325 195,318 210,322 C310,308 440,258 555,225 C610,298 648,388 648,432 C638,468 558,502 445,502"/>
+    </circle>
+  </g>
 </svg>
 <div class="bg-noise"></div>
 
@@ -897,8 +902,8 @@
     <div class="brand">
       <div class="brand-name">Paps Texas Logistics LLC</div>
       <div class="brand-numbers">
-        <span>MC 000000</span>
-        <span>DOT 0000000</span>
+        <span>MC PENDING</span>
+        <span>DOT 7079976</span>
       </div>
     </div>
     <div class="nav-links" id="navLinks">
@@ -924,13 +929,13 @@
           PAPS<br/>
           <span>on time.</span>
         </h1>
-        <p class="hero-p">On-demand 26 ft box truck capacity for shippers and brokers throughout Texas. Insured, GPS-tracked, lift-gate equipped.</p>
+        <p class="hero-p">On-demand 20 ft box truck capacity for shippers and brokers throughout Texas. Insured, GPS-tracked, lift-gate equipped.</p>
         <div class="hero-btns">
           <button class="btn-hero" onclick="document.getElementById('quote').scrollIntoView({behavior:'smooth'})">Request a Quote →</button>
           <button class="btn-hero-ghost" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">See Services</button>
         </div>
         <div class="hero-stats">
-          <div class="hs"><div class="hs-val">26 ft</div><div class="hs-lbl">Box Truck</div></div>
+          <div class="hs"><div class="hs-val">20 ft</div><div class="hs-lbl">Box Truck</div></div>
           <div class="hs"><div class="hs-val">$1M</div><div class="hs-lbl">Insured</div></div>
           <div class="hs"><div class="hs-val">24/7</div><div class="hs-lbl">Available</div></div>
           <div class="hs"><div class="hs-val">Texas</div><div class="hs-lbl">All Markets</div></div>
@@ -971,10 +976,10 @@
             <rect x="15" y="213" width="375" height="3" fill="#fff" opacity=".85"/>
             <rect x="15" y="228" width="375" height="3" fill="#fff" opacity=".5"/>
 
-            <text class="truck-ontime" x="378" y="208" text-anchor="end" fill="#114C5A" font-size="17" font-family="Inter,sans-serif" font-weight="700" letter-spacing="1.2">on time</text>
-
-            <!-- PAPS lettering on body -->
-            <text x="55" y="192" fill="rgba(255,255,255,.55)" font-size="58" font-family="Inter,sans-serif" font-weight="900" letter-spacing="12">PAPS</text>
+            <!-- PAPS lettering — centered in box body -->
+            <text x="202" y="162" text-anchor="middle" fill="rgba(255,255,255,.92)" font-size="54" font-family="Inter,sans-serif" font-weight="900" letter-spacing="10" transform="translate(405,0) scale(-1,1)">PAPS</text>
+            <!-- on time — right-aligned with end of PAPS, above stripes -->
+            <text x="281" y="188" text-anchor="end" fill="rgba(255,255,255,.65)" font-size="17" font-family="Inter,sans-serif" font-weight="600" letter-spacing="4" transform="translate(405,0) scale(-1,1)">on time</text>
 
             <!-- Rear door frame -->
             <rect x="11" y="98" width="5" height="190" fill="#1a1a1e"/>
@@ -1164,51 +1169,110 @@
       </div>
       <div class="fleet-wrap fade">
         <div class="fleet-dark">
-          <svg width="100%" viewBox="0 0 560 360" fill="none" xmlns="http://www.w3.org/2000/svg" style="max-width:440px;position:relative;z-index:1;filter:drop-shadow(0 20px 40px rgba(0,0,0,.4))">
-            <ellipse cx="272" cy="346" rx="248" ry="14" fill="rgba(0,0,0,.35)"/>
+          <svg width="100%" viewBox="0 0 560 360" fill="none" xmlns="http://www.w3.org/2000/svg" style="max-width:440px;position:relative;z-index:1;transform:scaleX(-1);filter:drop-shadow(0 20px 40px rgba(0,0,0,.4))">
+            <!-- ground shadow ellipse -->
+            <ellipse cx="272" cy="346" rx="248" ry="14" fill="rgba(0,0,0,.22)"/>
+
+            <!-- ══ BOX BODY ══ -->
+            <!-- TOP FACE (3/4 view, going into depth) -->
             <polygon points="15,98 390,98 432,62 57,62" fill="#383840"/>
+            <!-- top face highlight edge -->
             <polygon points="15,98 390,98 390,94 15,94" fill="rgba(255,255,255,.06)"/>
+
+            <!-- LEFT BACK SLIVER -->
             <polygon points="15,98 57,62 57,258 15,288" fill="#18181c"/>
+
+            <!-- MAIN SIDE FACE -->
             <rect x="15" y="98" width="375" height="190" fill="#2d2d33"/>
+
+            <!-- WHITE STRIPE -->
             <rect x="15" y="213" width="375" height="18" fill="rgba(255,255,255,.14)"/>
             <rect x="15" y="213" width="375" height="3" fill="#fff" opacity=".85"/>
             <rect x="15" y="228" width="375" height="3" fill="#fff" opacity=".5"/>
-            <text class="truck-ontime" x="378" y="208" text-anchor="end" fill="#114C5A" font-size="17" font-family="Inter,sans-serif" font-weight="700" letter-spacing="1.2">on time</text>
-            <text x="55" y="192" fill="rgba(255,255,255,.55)" font-size="58" font-family="Inter,sans-serif" font-weight="900" letter-spacing="12">PAPS</text>
+
+            <!-- PAPS lettering — centered in box body -->
+            <text x="202" y="162" text-anchor="middle" fill="rgba(255,255,255,.92)" font-size="54" font-family="Inter,sans-serif" font-weight="900" letter-spacing="10" transform="translate(405,0) scale(-1,1)">PAPS</text>
+            <!-- on time — right-aligned with end of PAPS, above stripes -->
+            <text x="281" y="188" text-anchor="end" fill="rgba(255,255,255,.65)" font-size="17" font-family="Inter,sans-serif" font-weight="600" letter-spacing="4" transform="translate(405,0) scale(-1,1)">on time</text>
+
+            <!-- Rear door frame -->
             <rect x="11" y="98" width="5" height="190" fill="#1a1a1e"/>
+            <!-- rear door handle bar -->
             <rect x="9" y="172" width="8" height="44" rx="3" fill="#FFD60A" opacity=".9"/>
             <rect x="9" y="172" width="8" height="6" rx="2" fill="rgba(255,255,255,.4)"/>
+
+            <!-- ══ CAB ══ -->
+            <!-- Cab side face -->
             <rect x="390" y="134" width="126" height="154" fill="#222228"/>
+
+            <!-- Cab top face (3/4) -->
             <polygon points="390,134 432,98 536,98 516,134" fill="#2e2e36"/>
+
+            <!-- Cab front face -->
             <polygon points="516,134 536,98 536,280 516,288" fill="#16161a"/>
+
+            <!-- Cab roof arch (rounded top) -->
             <path d="M390,134 Q390,110 410,104 L500,104 Q524,104 516,134 Z" fill="#28282e"/>
+
+            <!-- Windshield (side) -->
             <rect x="394" y="142" width="122" height="62" rx="4" fill="rgba(20,60,100,.88)"/>
             <rect x="394" y="142" width="122" height="62" rx="4" fill="url(#fwSide)"/>
+            <!-- windshield glare streak -->
             <rect x="398" y="146" width="52" height="9" rx="4" fill="rgba(255,255,255,.07)"/>
+
+            <!-- Windshield (front face) -->
             <polygon points="518,148 534,118 534,202 518,210" fill="rgba(20,60,100,.9)"/>
             <polygon points="518,148 534,118 534,202 518,210" fill="url(#fwFront)"/>
-            <polygon points="520,151 532,122 532,138 520,162" fill="rgba(255,255,255,.06)"/>
+
+            <!-- Cab side window (small) -->
             <rect x="390" y="145" width="16" height="42" rx="3" fill="rgba(20,60,100,.8)"/>
+
+            <!-- door divider line -->
             <line x1="390" y1="118" x2="516" y2="118" stroke="rgba(255,255,255,.05)" stroke-width="1"/>
             <line x1="390" y1="210" x2="516" y2="210" stroke="rgba(255,255,255,.05)" stroke-width="1"/>
+
+            <!-- door handle -->
             <rect x="402" y="226" width="22" height="5" rx="2.5" fill="rgba(255,255,255,.18)"/>
+
+            <!-- Headlight (front face) -->
             <rect x="519" y="220" width="14" height="28" rx="3" fill="#FFD60A" opacity=".9"/>
             <rect x="519" y="220" width="14" height="28" rx="3" fill="url(#fhLight)"/>
+            <!-- headlight lens lines -->
             <line x1="523" y1="222" x2="523" y2="246" stroke="rgba(255,255,255,.2)" stroke-width="1"/>
             <line x1="527" y1="222" x2="527" y2="246" stroke="rgba(255,255,255,.2)" stroke-width="1"/>
+
+            <!-- Fog light -->
             <rect x="519" y="254" width="14" height="10" rx="2" fill="rgba(255,200,80,.6)"/>
+
+            <!-- Front grill (front face) -->
             <rect x="517" y="268" width="16" height="14" rx="2" fill="#111"/>
             <line x1="521" y1="269" x2="521" y2="281" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
             <line x1="525" y1="269" x2="525" y2="281" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
             <line x1="529" y1="269" x2="529" y2="281" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
+
+            <!-- Front bumper -->
             <polygon points="516,288 536,276 536,298 516,298" fill="#2a2a30"/>
+
+            <!-- Marker lights -->
             <rect x="392" y="132" width="12" height="5" rx="2" fill="#FF9F0A" opacity=".9"/>
+            <rect x="392" y="132" width="12" height="5" rx="2" fill="rgba(255,160,40,.3)"/>
+
+            <!-- Exhaust stack -->
             <rect x="520" y="24" width="10" height="76" rx="4" fill="#3a3a3e"/>
             <rect x="519" y="22" width="12" height="6" rx="3" fill="#4a4a50"/>
+            <!-- smoke -->
             <circle cx="525" cy="14" r="8" fill="rgba(180,180,180,.05)"/>
+            <circle cx="530" cy="5" r="6" fill="rgba(180,180,180,.03)"/>
+
+            <!-- Side mirror -->
             <rect x="386" y="154" width="9" height="18" rx="2" fill="#2e2e34"/>
             <rect x="378" y="156" width="10" height="14" rx="2" fill="#222228" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
+
+            <!-- ══ CHASSIS / UNDERCARRIAGE ══ -->
             <rect x="15" y="284" width="521" height="14" rx="4" fill="#131316"/>
+
+            <!-- ══ WHEELS ══ -->
+            <!-- Rear dual wheels -->
             <circle cx="80" cy="298" r="28" fill="#0d0d10" stroke="rgba(255,255,255,.08)" stroke-width="1.5"/>
             <circle cx="80" cy="298" r="17" fill="#1c1c22"/>
             <circle cx="80" cy="298" r="7" fill="#FFD60A"/>
@@ -1216,12 +1280,17 @@
             <circle cx="80" cy="315" r="3" fill="rgba(255,255,255,.18)"/>
             <circle cx="63" cy="298" r="3" fill="rgba(255,255,255,.18)"/>
             <circle cx="97" cy="298" r="3" fill="rgba(255,255,255,.18)"/>
+
             <circle cx="114" cy="298" r="28" fill="#0d0d10" stroke="rgba(255,255,255,.08)" stroke-width="1.5"/>
             <circle cx="114" cy="298" r="17" fill="#1c1c22"/>
             <circle cx="114" cy="298" r="7" fill="#FFD60A"/>
+
+            <!-- Mid wheel -->
             <circle cx="252" cy="298" r="28" fill="#0d0d10" stroke="rgba(255,255,255,.06)" stroke-width="1.5"/>
             <circle cx="252" cy="298" r="17" fill="#1c1c22"/>
             <circle cx="252" cy="298" r="7" fill="#FFD60A"/>
+
+            <!-- Front wheel -->
             <circle cx="462" cy="298" r="28" fill="#0d0d10" stroke="rgba(255,255,255,.08)" stroke-width="1.5"/>
             <circle cx="462" cy="298" r="17" fill="#1c1c22"/>
             <circle cx="462" cy="298" r="7" fill="#FFD60A"/>
@@ -1229,9 +1298,8 @@
             <circle cx="462" cy="315" r="3" fill="rgba(255,255,255,.18)"/>
             <circle cx="445" cy="298" r="3" fill="rgba(255,255,255,.18)"/>
             <circle cx="479" cy="298" r="3" fill="rgba(255,255,255,.18)"/>
-            <circle cx="110" cy="57" r="6" fill="#30d158"/>
-            <circle cx="110" cy="57" r="12" fill="#30d158" opacity=".18"/>
-            <circle cx="110" cy="57" r="20" fill="#30d158" opacity=".07"/>
+
+
             <defs>
               <linearGradient id="fwSide" x1="394" y1="142" x2="516" y2="204" gradientUnits="userSpaceOnUse">
                 <stop offset="0%" stop-color="rgba(255,255,255,.18)"/>
@@ -1247,14 +1315,14 @@
               </radialGradient>
             </defs>
           </svg>
-          <div class="fleet-cap">26 ft · Lift Gate · GPS Tracked</div>
+          <div class="fleet-cap">20 ft · Lift Gate · GPS Tracked</div>
         </div>
         <div class="fleet-specs">
           <div class="fs-label">Specifications</div>
-          <div class="fs-title">26 ft Box Truck</div>
+          <div class="fs-title">20 ft Box Truck</div>
           <div class="fs-sub">Fully equipped for commercial and residential delivery. Everything on the truck, every load.</div>
           <ul class="spec-list">
-            <li class="spec-li"><span class="spec-check">✓</span>26 ft Box Truck</li>
+            <li class="spec-li"><span class="spec-check">✓</span>20 ft Box Truck</li>
             <li class="spec-li"><span class="spec-check">✓</span>Lift Gate — no loading dock required</li>
             <li class="spec-li"><span class="spec-check">✓</span>Load Tracks & E-Track Straps</li>
             <li class="spec-li"><span class="spec-check">✓</span>Moving Blankets — furniture-grade</li>
@@ -1375,7 +1443,7 @@
             <div class="f-icon">🚛</div>
             <span class="f-name">PAPS Logistics</span>
           </div>
-          <div class="f-about">On-demand 26 ft box truck capacity for shippers and brokers throughout Texas.</div>
+          <div class="f-about">On-demand 20 ft box truck capacity for shippers and brokers throughout Texas.</div>
         </div>
         <div class="foot-col">
           <h4>Navigation</h4>
@@ -1398,9 +1466,9 @@
       <div class="foot-bottom">
         <div>© 2026 PAPS Logistics · Texas · All rights reserved</div>
         <div class="f-badges">
-          <span class="f-badge">USDOT# <b>[PENDING]</b></span>
-          <span class="f-badge">MC# <b>[PENDING]</b></span>
-          <span class="f-badge">Cargo <b>$1M</b></span>
+          <span class="f-badge">USDOT# <b>7079976</b></span>
+          <span class="f-badge">MC# <b>PENDING</b></span>
+          <span class="f-badge">Cargo Insurance</span>
           <span class="f-badge">Liability <b>$1M</b></span>
         </div>
       </div>
@@ -1594,12 +1662,16 @@
     const amplitude= ()=> isMobile() ?  18 :  30;
 
     const ft = heroTruck.cloneNode(true);
-    ft.style.cssText = 'position:fixed;z-index:0;opacity:0;pointer-events:none;animation:none;transform:translate(-50%,-50%);will-change:left,top,opacity;';
+    ft.style.cssText = 'position:fixed;z-index:0;opacity:0;pointer-events:none;animation:none;transform:translate(-50%,-50%) scaleX(-1);will-change:left,top,opacity;transition:transform 0.4s ease;';
     ft.style.width = truckW() + 'px';
     document.body.appendChild(ft);
 
+    // save original text transforms for direction flipping
+    const ftTexts = ft.querySelectorAll('text');
+    ftTexts.forEach(t => { t.dataset.orig = t.getAttribute('transform') || ''; });
+
     const hero = document.getElementById('home');
-    let startX = null, startY = null;
+    let startX = null, startY = null, lastDir = null, lastX = null;
 
     function tick(){
       const hb = hero.getBoundingClientRect().bottom;
@@ -1609,8 +1681,7 @@
       const t = Math.min(window.scrollY / maxScroll, 1);
 
       const fadeIn  = Math.min(Math.max((window.innerHeight - hb) / window.innerHeight, 0) * 3, 1);
-      const fadeOut = t > 0.88 ? 1 - (t - 0.88) / 0.12 : 1;
-      const opacity = fadeIn * 0.75 * fadeOut;
+      const opacity = fadeIn * 0.75;
 
       if(!startX && fadeIn > 0) {
         const r = heroTruck.getBoundingClientRect();
@@ -1620,13 +1691,64 @@
 
       if(!startX) { ft.style.opacity = 0; return; }
 
-      const x = startX + amplitude() * Math.sin(t * Math.PI * 2);
-      const y = startY + t * (85 - startY);
+      // ── Mobile: quickly park top-right below the header, then stay ──
+      if(isMobile()){
+        const p      = Math.min(t / 0.15, 1);     // reaches its spot fast (by 15% scroll)
+        const e      = p*p*(3-2*p);               // smoothstep
+        const yStart = 70,  yEnd = 13;            // rises up to just below the header (vh)
+        const xEnd   = 80;                        // settles to the right (vw)
+        const y      = yStart + (yEnd - yStart) * e;
+        const x      = startX + (xEnd - startX) * e;
+        const shrink = 1 - e * 0.7;               // 1 → 0.3 as it parks
+        ft.style.zIndex  = 3;
+        ft.style.width   = truckW() + 'px';
+        ft.style.left    = x + 'vw';
+        ft.style.top     = y + 'vh';
+        ft.style.opacity = opacity;               // stays visible, parked
+        ft.style.transform = `translate(-50%,-50%) scaleX(-1) scale(${shrink})`;
+        if(lastDir !== -1){
+          lastDir = -1;
+          ftTexts.forEach(el => el.setAttribute('transform', el.dataset.orig));
+        }
+        return;
+      }
 
-      ft.style.width   = truckW() + 'px';
-      ft.style.left    = x + 'vw';
-      ft.style.top     = y + 'vh';
-      ft.style.opacity = opacity;
+      const xLeft = 8, xRight = 90;
+      let x;
+      if(t <= 0.5){
+        const p = t / 0.5, e = p*p*(3-2*p);
+        x = startX*(1-e) + xLeft*e;
+      } else {
+        const p = (t-0.5)/0.5, e = p*p*(3-2*p);
+        x = xLeft*(1-e) + xRight*e;
+      }
+      const y = Math.min(startY + t * (70 - startY), 70);
+
+      // Face the direction of travel so scrolling back up flips the truck
+      // around (drives forward) instead of reversing along the path.
+      let scaleX = lastDir || -1;
+      if(lastX !== null){
+        if(x > lastX + 0.05)      scaleX = 1;   // moving right → face right
+        else if(x < lastX - 0.05) scaleX = -1;  // moving left  → face left
+      }
+      lastX = x;
+
+      if(scaleX !== lastDir){
+        lastDir = scaleX;
+        ftTexts.forEach(el => {
+          if(scaleX === -1){
+            el.setAttribute('transform', el.dataset.orig);
+          } else {
+            el.setAttribute('transform', '');
+          }
+        });
+      }
+
+      ft.style.width     = truckW() + 'px';
+      ft.style.left      = x + 'vw';
+      ft.style.top       = y + 'vh';
+      ft.style.opacity   = opacity;
+      ft.style.transform = `translate(-50%,-50%) scaleX(${scaleX})`;
     }
 
     window.addEventListener('scroll', tick, {passive:true});
