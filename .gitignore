@@ -1,0 +1,10 @@
+# --- Archivos de operación / finanzas (NO publicar en el sitio web) ---
+# Este repo se despliega en Hostinger; estos archivos contienen datos
+# internos de la empresa y no deben quedar accesibles públicamente.
+*.numbers
+*.xlsx
+build_excel.py
+build_numbers.py
+
+# macOS
+.DS_Store
