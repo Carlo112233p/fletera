@@ -1,0 +1,19 @@
+name: Cleanup FTP
+
+on:
+  workflow_dispatch:
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Borrar archivo expuesto
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y lftp >/dev/null 2>&1
+          lftp -u "$FTP_USERNAME","$FTP_PASSWORD" "$FTP_SERVER" -e "set ssl:verify-certificate no; echo '=== ANTES ==='; cls -la /domains/papstexaslogistics.com/public_html/; rm -f /domains/papstexaslogistics.com/public_html/build_excel.py; echo '=== DESPUES ==='; cls -la /domains/papstexaslogistics.com/public_html/; quit" > out.txt 2>&1 || true
+          echo "################ SALIDA ################"
+          cat out.txt
