@@ -20,9 +20,9 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          # La cuenta FTP aterriza directamente dentro de public_html,
-          # así que la raíz "./" ES el web root del sitio.
-          server-dir: ./
+          # Ruta ABSOLUTA del web root real (el FTP aterriza en otra carpeta,
+          # así que hay que dar la ruta completa desde la raíz del FTP).
+          server-dir: /domains/papstexaslogistics.com/public_html/
           # Solo sube los archivos del sitio web
           exclude: |
             **/.git*
