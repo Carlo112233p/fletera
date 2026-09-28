@@ -20,9 +20,8 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          # La cuenta FTP de Hostinger ya entra dentro de public_html,
-          # así que la raíz "./" es la carpeta del sitio.
-          server-dir: ./
+          # Ruta real del sitio en Hostinger (la cuenta FTP aterriza en el home)
+          server-dir: domains/papstexaslogistics.com/public_html/
           # Solo sube los archivos del sitio web
           exclude: |
             **/.git*
