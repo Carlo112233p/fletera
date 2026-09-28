@@ -1,0 +1,34 @@
+name: Deploy to Hostinger
+
+# Se ejecuta automáticamente en cada push a la rama main
+on:
+  push:
+    branches: [main]
+  # Permite lanzarlo manualmente desde la pestaña Actions de GitHub
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar el código
+        uses: actions/checkout@v4
+
+      - name: Subir por FTP a Hostinger
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          # Carpeta del sitio en Hostinger (normalmente public_html/)
+          server-dir: public_html/
+          # Solo sube los archivos del sitio web
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/.github/**
+            README.md
+            *.numbers
+            *.xlsx
+            build_excel.py
+            build_numbers.py
